@@ -8,6 +8,7 @@ from collections import Counter
 from pytorch_transformers import BertTokenizer
 import copy
 from utils import InputExample, convert_example_to_feature
+from collections import Counter
         
         
 class AKIdata(Dataset):    
@@ -26,6 +27,7 @@ class AKIdata(Dataset):
         self.index = range(len(self.data_str))
         self.as_one_sequence = as_one_sequence
         self.label_list = self.data_str['aki_label'].unique()
+        self.label_count = Counter(self.data_str['aki_label'])
         
 #         if as_one_sequence:
 #             input_ids, input_mask, segment_ids = [], [], []
