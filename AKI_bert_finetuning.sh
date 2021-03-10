@@ -3,12 +3,13 @@ export TRAIN_FILE=./data/formatted.txt
 export INITIAL_PATH=../pretrained_bert_tf/biobert_pretrain_output_all_notes_150000/
 # export INITIAL_PATH=../pretrained_bert_tf/biobert_v1.1_pubmed/
 # export INITIAL_PATH=bert-base-uncased
+export OUT_PATH=./AKI-bioBERT/
 
 CUDA_VISIBLE_DEVICES=9 python ./lm_finetuning/simple_lm_finetuning.py  \
     --train_corpus $TRAIN_FILE   \
     --bert_model $INITIAL_PATH    \
     --do_lower_case     \
-    --output_dir ./AKI_orgbert_simple_lm_notes/   \
+    --output_dir OUT_PATH   \
     --do_train  \
     --on_memory  &
     
@@ -24,5 +25,5 @@ CUDA_VISIBLE_DEVICES=8 python ./lm_finetuning/finetune_on_pregenerated.py  \
     --pregenerated_data ./data/training/  \
     --bert_model $INITIAL_PATH  \
     --do_lower_case   \
-    --output_dir ./AKI_orgbert_pregenerated_lm_notes/   \
+    --output_dir OUT_PATH   \
     --epochs 3

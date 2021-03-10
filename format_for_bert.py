@@ -1,3 +1,5 @@
+## modified from  https://github.com/EmilyAlsentzer/clinicalBERT/blob/master/lm_pretraining/format_mimic_for_BERT.py
+
 # import psycopg2
 import pandas as pd
 import sys
@@ -11,8 +13,8 @@ from heuristic_tokenize import sent_tokenize_rules
 
 
 # update these constants to run this script
-OUTPUT_DIR = './data/formatted' #this path will contain tokenized notes. This dir will be the input dir for create_pretrain_data.sh
-# MIMIC_NOTES_FILE = '/share/fsmresfiles/mimic3/NOTEEVENTS.csv' #this is the path to mimic data if you're reading from a csv. Else uncomment the code to read from database below
+OUTPUT_DIR = '/PATH/TO/OUTPUT/DIR' #this path will contain tokenized notes. This dir will be the input dir for create_pretrain_data.sh
+MIMIC_NOTES_FILE = 'PATH/TO/MIMIC/NOTES' #this is the path to mimic data if you're reading from a csv. Else uncomment the code to read from database below
 
 
 #setting sentence boundaries
@@ -95,8 +97,8 @@ print('Begin reading notes')
 # con = psycopg2.connect(dbname='mimic', host="/var/run/postgresql")
 # notes_query = "(select * from mimiciii.noteevents);"
 # notes = pd.read_sql_query(notes_query, con)
-notes = pd.read_csv('/share/fsmresfiles/mimic3/NOTEEVENTS.csv', index_col=0)
-events = pd.read_csv('../AKI_str_unstr_project/icunoteevents.csv',usecols = ['note_row','icustay_id'])
+notes = pd.read_csv(MIMIC_NOTES_FILE, index_col=0)
+events = pd.read_csv('./icunoteevents.csv',usecols = ['note_row','icustay_id'])
 notes = notes.loc[events['note_row']]
 category = ['Nursing', 'Physician ', 'Nursing/other']
 notes = notes.query('CATEGORY in @category')
