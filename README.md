@@ -28,6 +28,7 @@ python3 aki_bert.py --gpu 0 --bert_model './AKI_bert_simple_lm_notes/' --do_trai
 ## Citation
 Please acknowledge the following work in papers or derivative software:
 
+```
 @inproceedings{mao2020pre,
   title={A pre-trained clinical language model for acute kidney injury},
   author={Mao, Chengsheng and Yao, Liang and Luo, Yuan},
@@ -36,4 +37,4 @@ Please acknowledge the following work in papers or derivative software:
   year={2020},
   organization={IEEE}
 }
-
+```
