@@ -123,6 +123,8 @@ with open(OUTPUT_DIR+ '.txt','w') as f:
             f.write(text)
             f.write('\n')
 
+formatted_notes.to_csv(OUTPUT_DIR+ '.csv')
+
 end = time.time()
 print (end-start)
 print ("Done formatting notes")
