@@ -13,7 +13,7 @@ The AKI-BERT models can also be downloaded [here](https://northwestern.box.com/s
 ## Reproduce AKI-BERT
 #### Pretraining
 To reproduce the steps necessary to finetune Bio+Clinical BERT or BioBERT on AKI data, follow the following steps:
-1. Run `format_mimic_for_BERT.py` - Note you'll need to change the file paths at the top of the file.
+1. Run `format_for_bert.py` - Note you'll need to change the file paths at the top of the file.
 3. Run `AKI_bert_finetuning.sh`  - Note you'll need to change the TRAIN_FILE as the txt file generated last step; change INITIAL_PATH to the model path from which your want to start the pretraining; change OUT_PATH to the path you want to store the model.
 
 
